@@ -12,9 +12,9 @@ public class DBConnection {
     private Statement statement;
     private Connection connection;
     private ResultSet resultSet;
-    private String url = "jdbc:mysql://ecarte.mysql.database.azure.com:3306/drive?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private String username = "masm@ecarte";
-    private String password = "Password1";
+    private String url = "jdbc:mysql://localhost:3306/toothbrush";
+    private String username = "root";
+    private String password = "root";
 
 
     public DBConnection() {
@@ -30,14 +30,14 @@ public class DBConnection {
         }
     }
 
-    public void getName() {
+    public void getEmail() {
         try {
-            String query = "select * from person";
+            String query = "select * from customer";
             resultSet = statement.executeQuery(query);
             System.out.println("Records from database: ");
             while(resultSet.next()) {
-                String name = resultSet.getString("name");
-                System.out.println("Name: " + name);
+                String name = resultSet.getString("email");
+                System.out.println("email: " + name);
             }
 
         } catch(Exception e) {
