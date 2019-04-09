@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -58,12 +59,19 @@ public class MainScreen implements Initializable {
 
     @FXML
     public void buy1(){
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Succes !");
+        alert.setHeaderText("Thank You For Your Purchase");
+        alert.showAndWait();
     }
 
     @FXML
     public void buy2(){
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Succes !");
+        alert.setHeaderText(null);
+        alert.setHeaderText("Thank You For Your Purchase");
+        alert.showAndWait();
     }
 
 }
