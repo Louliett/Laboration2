@@ -10,8 +10,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,9 +22,24 @@ import java.util.ResourceBundle;
 public class MainScreen implements Initializable {
 
 
+    @FXML
+    ImageView img1,img2;
+
+    @FXML
+    TextField buy1, buy2;
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        File file = new File("src/img/img1.jpg");
+        Image image = new Image(file.toURI().toString());
+        img1.setImage(image);
+
+        File file2 = new File("src/img/img2.jpg");
+        Image image2 = new Image(file2.toURI().toString());
+        img2.setImage(image2);
     }
 
     @FXML
@@ -36,6 +54,16 @@ public class MainScreen implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void buy1(){
+
+    }
+
+    @FXML
+    public void buy2(){
+
     }
 
 }
