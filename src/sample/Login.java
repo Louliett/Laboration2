@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -15,10 +16,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LogIn implements Initializable {
+public class Login implements Initializable {
 
-    @FXML Button logInButton, createAccountButton;
+
     @FXML TextField emailField, passField;
+    String email, pass;
+
+    DBConnection dbc = new DBConnection();
 
 
     @Override
@@ -29,15 +33,29 @@ public class LogIn implements Initializable {
     @FXML
     public void logInClick(ActionEvent event) throws IOException {
 
-        Node node = (Node)event.getSource();
-        Stage stage = (Stage)node.getScene().getWindow();
+        email = emailField.getText();
+        pass = passField.getText();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainscreen.fxml"));
-        Parent root;
-        root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
+
+        if(dbc.login(email, pass)) {
+
+            Node node = (Node)event.getSource();
+            Stage stage = (Stage)node.getScene().getWindow();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainscreen.fxml"));
+            Parent root;
+            root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Succes Not !");
+            alert.setHeaderText("Thank You for trying to not type incorrectly");
+            alert.showAndWait();
+        }
     }
 
 }

@@ -11,7 +11,7 @@ public class DBConnectionTest {
 
     @Test
     public void getEmail() {
-        dbc.getEmail();
+
     }
 
 }
