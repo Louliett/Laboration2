@@ -31,7 +31,6 @@ public class MainScreen implements Initializable {
     @FXML Label redLabel, blueLabel;
 
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources){
 

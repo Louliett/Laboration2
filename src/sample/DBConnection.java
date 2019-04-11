@@ -6,12 +6,13 @@ public class DBConnection {
 
 
     //variables
-    private Statement statement;
-    private Connection connection;
-    private ResultSet resultSet;
-    private String url = "jdbc:mysql://localhost:3306/toothbrush";
-    private String username = "root";
-    private String password = "root";
+    public Statement statement;
+    public Connection connection;
+    public ResultSet resultSet;
+    public String url = "jdbc:mysql://localhost:3306/toothbrush";
+    public String username = "root";
+    public String password = "root";
+
 
 
     public DBConnection() {
